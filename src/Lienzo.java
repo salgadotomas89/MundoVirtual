@@ -18,6 +18,7 @@ public class Lienzo extends Canvas implements Constantes{
     public Image imagenBuffer;
     //entidades del juego
     public Cartero cartero;
+    public Auto auto;
     public Peaton peaton;
     public Calle calle;
     public Vereda vereda;
@@ -29,6 +30,7 @@ public class Lienzo extends Canvas implements Constantes{
         laberinto=new Laberinto(this);
         vereda= new Vereda(laberinto);
         calle=new Calle(laberinto);
+        auto=new Auto(laberinto);
         cartero=new Cartero(laberinto);
         peaton=new Peaton(laberinto);
         portal=new Portal(laberinto);
@@ -49,10 +51,10 @@ public class Lienzo extends Canvas implements Constantes{
             repaint();//se actualiza el lienzo
             }
         });
-        
+        /*
         lanzadorTareas=new Timer();
         lanzadorTareas.scheduleAtFixedRate(peaton,0,1000);
-
+*/
     }
     
     public void esta(int x){

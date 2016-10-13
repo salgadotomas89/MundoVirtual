@@ -120,7 +120,7 @@ public class Cartero implements Constantes{
     }
     public void moverCeldaDerecha(){
         if (celdaCartero.x < anchuraMundoVirtual ) {
-            if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='C'){
+            if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo=='B'){
                 if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='A'){//si la celda distinto de peaton
                     if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='K'){//si la celda de arriba es != de auto
                        if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='P'){//si la celda distinta de portal

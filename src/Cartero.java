@@ -167,8 +167,5 @@ public class Cartero implements Constantes{
                 laberinto.celdas[celdaCartero.x][celdaCartero.y].tipo='J';
             }              
         }
-    }
-    
-    
-    
+    }    
 }

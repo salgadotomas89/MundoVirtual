@@ -24,7 +24,7 @@ public class Lienzo extends Canvas implements Constantes{
     public Vereda vereda;
     public Portal portal;
     public int estado=1;
-    public Timer lanzadorTareas;
+    public Timer lanzadorPeaton, lanzadorAuto;
     
     public Lienzo(){
         laberinto=new Laberinto(this);
@@ -51,10 +51,11 @@ public class Lienzo extends Canvas implements Constantes{
             repaint();//se actualiza el lienzo
             }
         });
-        /*
-        lanzadorTareas=new Timer();
-        lanzadorTareas.scheduleAtFixedRate(peaton,0,1000);
-*/
+        
+        lanzadorPeaton=new Timer();
+        lanzadorPeaton.scheduleAtFixedRate(peaton,0,1000);
+        lanzadorAuto=new Timer();
+        lanzadorAuto.scheduleAtFixedRate(auto,0,1000);
     }
     
     public void esta(int x){

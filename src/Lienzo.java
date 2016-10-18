@@ -30,7 +30,7 @@ public class Lienzo extends Canvas implements Constantes{
         laberinto=new Laberinto(this);
         vereda= new Vereda(laberinto);
         calle=new Calle(laberinto);
-        auto=new Auto(laberinto);
+        auto=new Auto(laberinto,15,3);
         cartero=new Cartero(laberinto);
         peaton=new Peaton(laberinto,14,5);
         peaton1=new Peaton(laberinto,31,15);

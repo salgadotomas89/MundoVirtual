@@ -38,7 +38,9 @@ public class Peaton extends TimerTask implements Constantes{
                         }
                     }
                 }else{
-                    direccion=2;
+                        direccion=2;
+                    
+                    
                 }
             }else{//si estamos en la calle
                 if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='K'){

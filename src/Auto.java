@@ -11,9 +11,11 @@ public class Auto extends TimerTask{
     public int direccion;
     public int x,y;
     
-    public Auto(Laberinto laberinto){
+    public Auto(Laberinto laberinto,int x,int y){
+        this.x=x;
+        this.y=y;
         this.laberinto=laberinto; 
-        celdaAuto=new Celda(15,3,'K');
+        celdaAuto=new Celda(x,y,'K');
         laberinto.celdas[celdaAuto.x][celdaAuto.y].tipo='K'; 
         direccion=0;
     }
@@ -28,6 +30,8 @@ public class Auto extends TimerTask{
                     direccion=1;
                 }
             }
+        }else{
+          
         }
     }
     public void moverDerecha(){

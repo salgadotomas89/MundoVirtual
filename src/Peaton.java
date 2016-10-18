@@ -8,12 +8,17 @@ import java.util.TimerTask;
 public class Peaton extends TimerTask implements Constantes{
     public Laberinto laberinto;
     public Celda celdaPeaton;
+    public int direccion;
+    public int x,y;
     
     //contructor de la clase Peaton
-    public Peaton(Laberinto laberinto){
+    public Peaton(Laberinto laberinto, int x,int y){
+        this.x=x;
+        this.y=y;
         this.laberinto=laberinto;
-        celdaPeaton=new Celda(14,4,'A');
-        laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';              
+        celdaPeaton=new Celda(x,y,'A');//14y 5
+        laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';    
+        direccion=0;
     }
     
     public void moverAbajo(){
@@ -24,32 +29,27 @@ public class Peaton extends TimerTask implements Constantes{
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y-1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y-1].tipo=='P'
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y+1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y+1].tipo=='P'){
                 //estamos en la vereda
+                if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='C'){
+                    if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='V'){//si la celda x+1 no es auto
+                        if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='J'){//si la celda x+1 no es adversario
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                            celdaPeaton.y=celdaPeaton.y+1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                             
+                        }
+                    }
+                }else{
+                    direccion=2;
+                }
+            }else{//si estamos en la calle
                 if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='K'){
                     if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='V'){//si la celda x+1 no es auto
                         if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='J'){//si la celda x+1 no es adversario
-                            if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='P'){//si la celda x+1 != de portal
-                                if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo!='P'){
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                    celdaPeaton.y=celdaPeaton.y+1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                }else{
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='P';
-                                    celdaPeaton.y=celdaPeaton.y+1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                    laberinto.lienzoPadre.esta(1);
-                                }                            
-                            }else{
-                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                celdaPeaton.y=celdaPeaton.y+1;
-                                laberinto.lienzoPadre.esta(2);
-                            }                        
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
+                            celdaPeaton.y=celdaPeaton.y+1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                             
                         }
                     }
                 }
-            }else{//si estamos en la calle
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
-                celdaPeaton.y=celdaPeaton.y+1;
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
             }                                     
     }
     public void moverArriba(){
@@ -60,32 +60,27 @@ public class Peaton extends TimerTask implements Constantes{
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y-1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y-1].tipo=='P'
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y+1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y+1].tipo=='P'){
                 //estamos en la vereda
+                if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='C'){
+                    if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='V'){//si la celda x+1 no es auto
+                        if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='J'){//si la celda x+1 no es adversario                                
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                            celdaPeaton.y=celdaPeaton.y-1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                        
+                        }
+                    }
+                }else{
+                    direccion=0;
+                }
+            }else{//si estamos en la calle
                 if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='K'){
                     if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='V'){//si la celda x+1 no es auto
-                        if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='J'){//si la celda x+1 no es adversario
-                            if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='P'){//si la celda x+1 != de portal
-                                if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo!='P'){
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                    celdaPeaton.y=celdaPeaton.y-1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                }else{
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='P';
-                                    celdaPeaton.y=celdaPeaton.y-1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                    laberinto.lienzoPadre.esta(1);
-                                }                            
-                            }else{
-                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                celdaPeaton.y=celdaPeaton.y-1;
-                                laberinto.lienzoPadre.esta(2);
-                            }                        
+                        if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='J'){//si la celda x+1 no es adversario                                
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
+                            celdaPeaton.y=celdaPeaton.y-1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                        
                         }
                     }
                 }
-            }else{//si estamos en la calle
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
-                celdaPeaton.y=celdaPeaton.y-1;
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
             } 
     }
     public void moverDerecha(){
@@ -96,32 +91,29 @@ public class Peaton extends TimerTask implements Constantes{
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y-1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y-1].tipo=='P'
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y+1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y+1].tipo=='P'){
                 //estamos en la vereda
+                if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='C'){
+                    if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='V'){
+                        if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='J'){//si la celda x+1 no es cartero                           
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                            celdaPeaton.x=celdaPeaton.x+1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                 
+                        }
+                    }
+                }else{
+                    direccion=3;
+                }
+            }else{//si estamos en la calle
+            
                 if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='K'){
                     if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='V'){//si la celda x+1 no es auto
-                        if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='J'){//si la celda x+1 no es adversario
-                            if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='P'){//si la celda x+1 != de portal
-                                if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo!='P'){
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                    celdaPeaton.x=celdaPeaton.x+1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                }else{
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='P';
-                                    celdaPeaton.x=celdaPeaton.x+1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                    laberinto.lienzoPadre.esta(1);
-                                }                            
-                            }else{
-                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                celdaPeaton.x=celdaPeaton.x+1;
-                                laberinto.lienzoPadre.esta(2);
-                            }                        
+                        if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='J'){//si la celda x+1 no es adversario                           
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
+                            celdaPeaton.x=celdaPeaton.x+1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                 
                         }
                     }
                 }
-            }else{//si estamos en la calle
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
-                celdaPeaton.x=celdaPeaton.x+1;
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
+            
             }              
     }
     public void moverIzquierda(){
@@ -132,40 +124,42 @@ public class Peaton extends TimerTask implements Constantes{
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y-1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y-1].tipo=='P'
             ||laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y+1].tipo=='P'||laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y+1].tipo=='P'){
                 //estamos en la vereda
-                if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='K'){
+                if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='J'){
                     if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='V'){
-                        if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='J'){//si la celda x+1 no es adversario
-                            if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='P'){//si la celda x+1 != de portal
-                                if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo!='P'){
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                    celdaPeaton.x=celdaPeaton.x-1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                }else{
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='P';
-                                    celdaPeaton.x=celdaPeaton.x-1;
-                                    laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
-                                    laberinto.lienzoPadre.esta(1);
-                                }                            
-                            }else{
-                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                                celdaPeaton.x=celdaPeaton.x-1;
-                                laberinto.lienzoPadre.esta(2);
-                            }                        
+                        if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='C'){//si la celda x+1 no es adversario                            
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                            celdaPeaton.x=celdaPeaton.x-1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                
+                        }else{
+                            direccion=1;
                         }
                     }
                 }
             }else{//si estamos en la calle
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
-                celdaPeaton.x=celdaPeaton.x-1;
-                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';
+                if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='J'){
+                    if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='V'){
+                        if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='K'){//si la celda x+1 no es adversario                            
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='C';
+                            celdaPeaton.x=celdaPeaton.x-1;
+                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                
+                        }
+                    }
+                }
             } 
     }
     @Override
     public void run(){
-        if(celdaPeaton.x>4){
+        if(direccion==0){
             moverIzquierda();
-        }else{
+        }
+        if(direccion==1){
             moverAbajo();
+        }
+        if(direccion==2){
+            moverDerecha();
+        }
+        if(direccion==3){
+            moverArriba();
         }
         laberinto.lienzoPadre.repaint();
     }

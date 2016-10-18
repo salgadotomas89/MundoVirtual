@@ -19,12 +19,12 @@ public class Lienzo extends Canvas implements Constantes{
     //entidades del juego
     public Cartero cartero;
     public Auto auto;
-    public Peaton peaton;
+    public Peaton peaton, peaton1;
     public Calle calle;
     public Vereda vereda;
     public Portal portal;
     public int estado=1;
-    public Timer lanzadorPeaton, lanzadorAuto;
+    public Timer lanzadorPeaton, lanzadorAuto,lanzadorPeaton1;
     
     public Lienzo(){
         laberinto=new Laberinto(this);
@@ -32,7 +32,8 @@ public class Lienzo extends Canvas implements Constantes{
         calle=new Calle(laberinto);
         auto=new Auto(laberinto);
         cartero=new Cartero(laberinto);
-        peaton=new Peaton(laberinto);
+        peaton=new Peaton(laberinto,14,5);
+        peaton1=new Peaton(laberinto,31,15);
         portal=new Portal(laberinto);
                
         try {
@@ -54,8 +55,12 @@ public class Lienzo extends Canvas implements Constantes{
         
         lanzadorPeaton=new Timer();
         lanzadorPeaton.scheduleAtFixedRate(peaton,0,1000);
+        
+        lanzadorPeaton1=new Timer();
+        lanzadorPeaton1.scheduleAtFixedRate(peaton1,0,900);
+        
         lanzadorAuto=new Timer();
-        lanzadorAuto.scheduleAtFixedRate(auto,0,1000);
+        lanzadorAuto.scheduleAtFixedRate(auto,0,400);
     }
     
     public void esta(int x){
@@ -77,10 +82,10 @@ public class Lienzo extends Canvas implements Constantes{
         //pintamos la imagen previa
         g.drawImage(imagenBuffer, 0, 0, null);
         if(estado!=1){
-            g.drawString("EL CARTERO SE ENCUENTRA EN EL PORTAL", 700,60);
+            g.drawString("EL CARTERO SE ENCUENTRA EN EL PORTAL", 700,20);
 
         }else{
-            g.drawString("PORTAL", 700,60);
+            g.drawString("PORTAL", 700,20);
         }
         
     }

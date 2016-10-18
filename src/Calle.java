@@ -19,60 +19,55 @@ public class Calle {
     
     public void insertarCarretera(){
         //horizontal
-        for(int i=3;i<10;i++){
+        for(int i=3;i<65;i++){
             carretera=new Celda(i,3,'C');
             laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(i,9,'C');
+            carretera=new Celda(i,4,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+        }
+        for(int i=3;i<65;i++){
+            carretera=new Celda(i,13,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+            carretera=new Celda(i,14,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+        }
+        for(int i=3;i<65;i++){
+            carretera=new Celda(i,23,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+            carretera=new Celda(i,24,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+        }
+        for(int i=3;i<65;i++){
+            carretera=new Celda(i,33,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+            carretera=new Celda(i,34,'C');
             laberinto.celdas[carretera.x][carretera.y].tipo='C';
         }
         //vertical
-        for(int i=4;i<9;i++){
+        for(int i=3;i<34;i++){
             carretera=new Celda(3,i,'C');
             laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(9,i,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';            
+            carretera=new Celda(4,i,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';          
         }
-        //horizontal
-        for(int i=10;i<17;i++){
-            carretera=new Celda(i,3,'C');
+        for(int i=3;i<34;i++){
+            carretera=new Celda(23,i,'C');
             laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(i,9,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+            carretera=new Celda(24,i,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';          
         }
-        //vertical
-        for(int i=4;i<9;i++){
-            carretera=new Celda(10,i,'C');
+        for(int i=3;i<34;i++){
+            carretera=new Celda(43,i,'C');
             laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(16,i,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';            
+            carretera=new Celda(44,i,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';          
         }
-        //horizontal
-        for(int i=3;i<10;i++){
-            carretera=new Celda(i,10,'C');
+         for(int i=3;i<34;i++){
+            carretera=new Celda(63,i,'C');
             laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(i,16,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';
+            carretera=new Celda(64,i,'C');
+            laberinto.celdas[carretera.x][carretera.y].tipo='C';          
         }
-        //vertical
-        for(int i=11;i<17;i++){
-            carretera=new Celda(3,i,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(9,i,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';            
-        }
-        //horizontal
-        for(int i=10;i<17;i++){
-            carretera=new Celda(i,10,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(i,16,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';
-        }
-        //vertical
-        for(int i=10;i<16;i++){
-            carretera=new Celda(10,i,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';
-            carretera=new Celda(16,i,'C');
-            laberinto.celdas[carretera.x][carretera.y].tipo='C';            
-        }
+        
     }
 }

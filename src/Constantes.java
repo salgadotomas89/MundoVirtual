@@ -17,6 +17,7 @@ public interface Constantes {
     public final char CARRETERA='C';
     public final char PEATON='A';
     public final char PARED='W';
+    public final char PASO='Z';
     
     //mostrar las celdas por encima del fondo
     public final int ALFA=127;

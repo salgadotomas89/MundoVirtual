@@ -15,7 +15,7 @@ public class Celda extends JComponent implements Constantes {
         public int x, y;
         //tipo: guardara un caracter sobre el tipo de celda que se define
         public char tipo;
-        public BufferedImage cartero,portal,pared,peaton,carretera,vereda,auto;
+        public BufferedImage cartero,portal,pared,peaton,carretera,vereda,auto, paso;
 
         
         //constructor
@@ -32,6 +32,7 @@ public class Celda extends JComponent implements Constantes {
             pared=ImageIO.read(new File("imagenes/pared.png"));
             vereda=ImageIO.read(new File("imagenes/vereda.png"));
             auto=ImageIO.read(new File("imagenes/auto.png"));
+            paso=ImageIO.read(new File("imagenes/paso.png"));
             } catch (IOException e) {
                 System.out.println(e.toString());
             }
@@ -47,6 +48,7 @@ public class Celda extends JComponent implements Constantes {
             case 'W': g.drawImage(pared,x,y, this); break;
             case 'B': g.drawImage(vereda, x, y, this); break;
             case 'K': g.drawImage(auto, x, y, this); break;
+            case 'Z': g.drawImage(paso, x, y, this); break;
             case 'V': g.setColor(COLORFONDO);
             g.fillRect(x, y,anchuraCelda,alturaCelda);
             break;

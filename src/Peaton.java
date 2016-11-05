@@ -32,9 +32,13 @@ public class Peaton extends TimerTask implements Constantes{
                 if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='C'){
                     if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='V'){//si la celda x+1 no es auto
                         if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='J'){//si la celda x+1 no es adversario
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                            celdaPeaton.y=celdaPeaton.y+1;
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                             
+                            if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y+1].tipo!='Z'){
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                                celdaPeaton.y=celdaPeaton.y+1;
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';        
+                            }else{
+                                direccion=2;
+                            }                                                                                                                                 
                         }
                     }
                 }else{
@@ -64,10 +68,14 @@ public class Peaton extends TimerTask implements Constantes{
                 //estamos en la vereda
                 if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='C'){
                     if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='V'){//si la celda x+1 no es auto
-                        if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='J'){//si la celda x+1 no es adversario                                
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                            celdaPeaton.y=celdaPeaton.y-1;
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                        
+                        if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='J'){//si la celda x+1 no es adversario
+                            if(laberinto.celdas[celdaPeaton.x][celdaPeaton.y-1].tipo!='Z'){
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                                celdaPeaton.y=celdaPeaton.y-1;
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';              
+                            }else{
+                                direccion=0;
+                            }                                                                                                                   
                         }
                     }
                 }else{
@@ -95,10 +103,14 @@ public class Peaton extends TimerTask implements Constantes{
                 //estamos en la vereda
                 if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='C'){
                     if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='V'){
-                        if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='J'){//si la celda x+1 no es cartero                           
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                            celdaPeaton.x=celdaPeaton.x+1;
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                                                                                 
+                        if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='J'){//si la celda x+1 no es cartero 
+                            if(laberinto.celdas[celdaPeaton.x+1][celdaPeaton.y].tipo!='Z'){
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                                celdaPeaton.x=celdaPeaton.x+1;
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';        
+                            }else{
+                                direccion=3;
+                            }                                                                                                                     
                         }
                     }
                 }else{
@@ -128,10 +140,14 @@ public class Peaton extends TimerTask implements Constantes{
                 //estamos en la vereda
                 if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='J'){
                     if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='V'){
-                        if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='C'){//si la celda x+1 no es adversario                            
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
-                            celdaPeaton.x=celdaPeaton.x-1;
-                            laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';                                
+                        if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='C'){//                           
+                            if(laberinto.celdas[celdaPeaton.x-1][celdaPeaton.y].tipo!='Z'){
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='B';
+                                celdaPeaton.x=celdaPeaton.x-1;
+                                laberinto.celdas[celdaPeaton.x][celdaPeaton.y].tipo='A';        
+                            }else{
+                                direccion=1;
+                            }                           
                         }else{
                             direccion=1;
                         }

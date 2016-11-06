@@ -25,10 +25,15 @@ public class Cartero implements Constantes{
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y-1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y-1].tipo=='P'
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y+1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y+1].tipo=='P'){
                 //estamos en la vereda
-                if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='K'){
-                    if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='V'){//si la celda x+1 no es auto
-                        if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='A'){//si la celda x+1 no es adversario
-                                if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='P'){//si la celda x+1 != de portal
+                if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y-1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x+2][celdaCartero.y-1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-2][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x+3][celdaCartero.y-1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-3][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x+4][celdaCartero.y-1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-4][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x+5][celdaCartero.y-1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-5][celdaCartero.y-1].tipo!='K'){
+                    if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='V'){
+                        if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='A'){
+                            if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='P'){//si la celda x+1 != de portal
                                     if(laberinto.celdas[celdaCartero.x][celdaCartero.y].tipo!='P'){
                                         laberinto.celdas[celdaCartero.x][celdaCartero.y].tipo='B';//vereda
                                         celdaCartero.y=celdaCartero.y-1;
@@ -68,7 +73,12 @@ public class Cartero implements Constantes{
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y-1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y-1].tipo=='P'
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y+1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y+1].tipo=='P'){
                 //estamos en la vereda
-                if(laberinto.celdas[celdaCartero.x][celdaCartero.y+1].tipo!='K'){
+                if(laberinto.celdas[celdaCartero.x][celdaCartero.y+1].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y+1].tipo!='K'&&laberinto.celdas[celdaCartero.x+2][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-2][celdaCartero.y+1].tipo!='K'&&laberinto.celdas[celdaCartero.x+3][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-3][celdaCartero.y+1].tipo!='K'&&laberinto.celdas[celdaCartero.x+4][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-4][celdaCartero.y+1].tipo!='K'&&laberinto.celdas[celdaCartero.x+5][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-5][celdaCartero.y+1].tipo!='K'){
                     if(laberinto.celdas[celdaCartero.x][celdaCartero.y+1].tipo!='V'){//si la celda x+1 no es auto
                         if(laberinto.celdas[celdaCartero.x][celdaCartero.y+1].tipo!='A'){//si la celda x+1 no es adversario
                             if(laberinto.celdas[celdaCartero.x][celdaCartero.y+1].tipo!='P'){//si la celda x+1 != de portal
@@ -110,7 +120,12 @@ public class Cartero implements Constantes{
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y-1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y-1].tipo=='P'
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y+1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y+1].tipo=='P'){
                 //estamos en la vereda
-                if(laberinto.celdas[celdaCartero.x-1][celdaCartero.y].tipo!='K'){
+                if(laberinto.celdas[celdaCartero.x-1][celdaCartero.y].tipo!='K'&&laberinto.celdas[celdaCartero.x-1][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x-1][celdaCartero.y+2].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y-2].tipo!='K'&&laberinto.celdas[celdaCartero.x-1][celdaCartero.y+3].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y-3].tipo!='K'&&laberinto.celdas[celdaCartero.x-1][celdaCartero.y+4].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y-4].tipo!='K'&&laberinto.celdas[celdaCartero.x-1][celdaCartero.y+5].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x-1][celdaCartero.y-5].tipo!='K'){
                     if(laberinto.celdas[celdaCartero.x-1][celdaCartero.y].tipo!='V'){//si la celda x+1 no es auto
                         if(laberinto.celdas[celdaCartero.x-1][celdaCartero.y].tipo!='A'){//si la celda x+1 no es adversario
                             if(laberinto.celdas[celdaCartero.x-1][celdaCartero.y].tipo!='P'){//si la celda x+1 != de portal
@@ -152,7 +167,12 @@ public class Cartero implements Constantes{
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y-1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y-1].tipo=='P'
             ||laberinto.celdas[celdaCartero.x-1][celdaCartero.y+1].tipo=='P'||laberinto.celdas[celdaCartero.x+1][celdaCartero.y+1].tipo=='P'){
                 //estamos en la vereda
-                if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='K'){
+                if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y+1].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x+1][celdaCartero.y-1].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y+2].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x+1][celdaCartero.y-2].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y+3].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x+1][celdaCartero.y-3].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y+4].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x+1][celdaCartero.y-4].tipo!='K'&&laberinto.celdas[celdaCartero.x+1][celdaCartero.y+5].tipo!='K'
+                &&laberinto.celdas[celdaCartero.x+1][celdaCartero.y-5].tipo!='K'){
                     if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='V'){//si la celda x+1 no es auto
                         if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='A'){//si la celda x+1 no es adversario
                             if(laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='P'){//si la celda x+1 != de portal

@@ -48,18 +48,14 @@ public class Cartero implements Constantes{
                         }
                     }
                 }
-            }else{//si estamos en la calle
-                if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='Z' && laberinto.celdas[celdaCartero.x-1][celdaCartero.y].tipo!='C'&& laberinto.celdas[celdaCartero.x+1][celdaCartero.y].tipo!='C'){
+            }else{//si estamos en la calle                
                    if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='K'){
                     if(laberinto.celdas[celdaCartero.x][celdaCartero.y-1].tipo!='A'){
                         laberinto.celdas[celdaCartero.x][celdaCartero.y].tipo='C';
                         celdaCartero.y=celdaCartero.y-1;
                         laberinto.celdas[celdaCartero.x][celdaCartero.y].tipo='J';
                     }
-                }
-                }else{
-                    
-                }
+                }                
             } 
         }
     }

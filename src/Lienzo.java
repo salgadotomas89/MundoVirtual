@@ -18,7 +18,7 @@ public class Lienzo extends Canvas implements Constantes{
     public Image imagenBuffer;
     //entidades del juego
     public Cartero cartero;
-    public Auto auto;
+    public Auto auto, auto1, auto2, auto3,auto4,auto5;
     public Peaton peaton, peaton1;
     public Calle calle;
     public Paso paso;
@@ -31,7 +31,12 @@ public class Lienzo extends Canvas implements Constantes{
         laberinto=new Laberinto(this);
         vereda= new Vereda(laberinto);
         calle=new Calle(laberinto);
-        auto=new Auto(laberinto,15,3);
+        auto=new Auto(laberinto,63,4,59,29,59,29,1,0);//int izquierda,int abajo,int derecha, int arriba,int direccion,int girar
+        auto1=new Auto(laberinto,43,14,19,9,19,9,1,0);
+        auto2=new Auto(laberinto,3,34,61,31,61,31,0,3);
+        auto3=new Auto(laberinto,3,3,61,31,61,31,0,2);
+        auto4=new Auto(laberinto,64,3,61,31,61,31,0,1);
+        auto5=new Auto(laberinto,64,34,61,31,61,31,0,0);
         cartero=new Cartero(laberinto);
         peaton=new Peaton(laberinto,14,5);
         peaton1=new Peaton(laberinto,31,15);
@@ -64,7 +69,13 @@ public class Lienzo extends Canvas implements Constantes{
         lanzadorPeaton1.scheduleAtFixedRate(peaton1,0,900);
         
         lanzadorAuto=new Timer();
-        lanzadorAuto.scheduleAtFixedRate(auto,0,400);
+        lanzadorAuto.scheduleAtFixedRate(auto,0,300);
+        lanzadorAuto.scheduleAtFixedRate(auto1,0,300);
+        lanzadorAuto.scheduleAtFixedRate(auto2,0,300);
+        lanzadorAuto.scheduleAtFixedRate(auto3,0,300);
+        lanzadorAuto.scheduleAtFixedRate(auto4,0,300);
+        lanzadorAuto.scheduleAtFixedRate(auto5,0,300);
+
     }
     
     public void esta(int x){

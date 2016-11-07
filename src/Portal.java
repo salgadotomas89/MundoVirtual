@@ -8,10 +8,13 @@
 public class Portal {
     public Laberinto laberinto;
     public Celda portal;
+    public int x,y;
     
-    public Portal(Laberinto laberinto){
+    public Portal(Laberinto laberinto,int x, int y){
         this.laberinto=laberinto;
-        portal=new Celda(6,6,'P');
+        this.x=x;
+        this.y=y;
+        portal=new Celda(x,y,'P');
         laberinto.celdas[portal.x][portal.y].tipo='P';
     }
     

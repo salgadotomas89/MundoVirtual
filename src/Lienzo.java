@@ -23,7 +23,7 @@ public class Lienzo extends Canvas implements Constantes{
     public Calle calle;
     public Paso paso;
     public Vereda vereda;
-    public Portal portal;
+    public Portal portal,portal1,portal2;
     public int estado=1;
     public Timer lanzadorPeaton, lanzadorAuto,lanzadorPeaton1;
     
@@ -40,8 +40,9 @@ public class Lienzo extends Canvas implements Constantes{
         cartero=new Cartero(laberinto);
         peaton=new Peaton(laberinto,14,5);
         peaton1=new Peaton(laberinto,31,15);
-        portal=new Portal(laberinto);
-        
+        portal=new Portal(laberinto,26,11);
+        portal1=new Portal(laberinto,6,6);
+        portal2=new Portal(laberinto,6,20);
         paso=new Paso(laberinto,5,13);
         paso=new Paso(laberinto,5,14);
                

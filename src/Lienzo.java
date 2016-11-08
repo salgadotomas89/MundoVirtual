@@ -45,6 +45,8 @@ public class Lienzo extends Canvas implements Constantes{
         portal2=new Portal(laberinto,6,20);
         paso=new Paso(laberinto,5,13);
         paso=new Paso(laberinto,5,14);
+        paso=new Paso(laberinto,23,22);
+        paso=new Paso(laberinto,24,22);
                
         try {
         fondo = ImageIO.read(new File("imagenes/fondo.jpg"));

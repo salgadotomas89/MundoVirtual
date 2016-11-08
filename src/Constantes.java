@@ -18,9 +18,10 @@ public interface Constantes {
     public final char PEATON='A';
     public final char PARED='W';
     public final char PASO='Z';
+    public final char VEREDA='B';
     
     //mostrar las celdas por encima del fondo
-    public final int ALFA=127;
+    public final int ALFA=50;
     public final Color COLORFONDO=new Color(153,217,234,ALFA);
     public final String RUTA="file://"+System.getProperty( "user.dir" );
     
